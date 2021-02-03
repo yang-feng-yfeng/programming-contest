@@ -1,17 +1,19 @@
+package lcode.prac;
 // https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
  */
-public class Solution {
+public class Solution160 {
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
+
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null)
             return null;

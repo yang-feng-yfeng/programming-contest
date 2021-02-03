@@ -1,5 +1,6 @@
+package lcode.w44;
 // https://leetcode.com/contest/biweekly-contest-44/problems/find-the-highest-altitude/
-class Solution {
+class Solution1732 {
     public int largestAltitude(int[] gain) {
         int max = 0;
         int current = 0;

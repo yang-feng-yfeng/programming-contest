@@ -1,6 +1,7 @@
-// https://leetcode.com/contest/biweekly-contest-44/problems/count-ways-to-make-array-with-product/
+package lcode.w44;
 
-class Solution {
+// https://leetcode.com/contest/biweekly-contest-44/problems/count-ways-to-make-array-with-product/
+class Solution1735 {
     public int[] waysToFillArray(int[][] queries) {
         int[] answer = new int[queries.length];
 

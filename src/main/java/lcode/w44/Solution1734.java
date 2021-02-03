@@ -1,5 +1,6 @@
+package lcode.w44;
 // https://leetcode.com/contest/biweekly-contest-44/problems/decode-xored-permutation/
-class Solution {
+class Solution1734 {
     public int[] decode(int[] encoded) {
         int sum = 0;
         for (int i = 0; i <= encoded.length; i++) {

@@ -1,5 +1,7 @@
+package lcode.prac;
+
 // https://leetcode.com/problems/reverse-integer/
-class Solution {
+class Solution7 {
     public int reverse(int x) {
         StringBuilder result = new StringBuilder();
         if (x < 0) {
