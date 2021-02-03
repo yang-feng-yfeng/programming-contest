@@ -45,6 +45,4 @@ class Solution1733 {
         }
         return false;
     }
-
-	}
 }
