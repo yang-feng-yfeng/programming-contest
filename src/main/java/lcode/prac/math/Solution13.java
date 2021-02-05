@@ -1,4 +1,4 @@
-package lcode.prac;
+package lcode.prac.math;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package lcode.prac;
+package lcode.prac.math;
 
 // https://leetcode.com/problems/reverse-integer/
 class Solution7 {
