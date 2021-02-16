@@ -1,4 +1,4 @@
-package lcode.w55;
+package lcode.w45;
 
 //https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/
 public class Solution1749 {

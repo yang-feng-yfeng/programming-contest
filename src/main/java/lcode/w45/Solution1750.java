@@ -1,4 +1,4 @@
-package lcode.w55;
+package lcode.w45;
 
 //https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/
 public class Solution1750 {
