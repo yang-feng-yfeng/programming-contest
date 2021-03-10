@@ -14,6 +14,6 @@ class Solution1735todo {
     		// General rule may be ==> n with a^k1 * b^k2 * ... ==> （C(1,n) + C() .... 
 
         }
-
+        return new int[]{};
     }
 }
