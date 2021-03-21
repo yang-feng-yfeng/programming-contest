@@ -1,9 +1,9 @@
-package codejam;
+package kickstart.y2020.ra.c;
 // Remove package line for submit
 
-import java.util.*;
+import java.util.Scanner;
 
-class Solution {
+class TODOSolution {
 
     public static void main(String[] args) {
 
