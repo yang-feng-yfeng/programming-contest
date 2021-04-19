@@ -10,7 +10,7 @@ public class SolutionTest {
 
     @Test
     public void cheater() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("src/main/java/codejam/y2021/e/cheating_detection_sample_ts1_input.txt"));
+        Scanner scanner = new Scanner(new File("src/main/java/codejam/y2021/quali/e/cheating_detection_sample_ts1_input.txt"));
         Solution.cheater(scanner);
     }
 }

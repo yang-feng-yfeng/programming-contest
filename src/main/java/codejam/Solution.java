@@ -11,10 +11,10 @@ class Solution {
 
         int T = in.nextInt();
 
-        for (int i = 0; i < T; i++) {
+        for (int t = 0; t < T; t++) {
             int N = in.nextInt();
 
-            System.out.println("Case #" + (i+1) + ": ");
+            System.out.println("Case #" + (t+1) + ": ");
         }
         in.close();
     }

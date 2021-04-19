@@ -2,8 +2,11 @@ package codejam.y2021.quali.e;
 // Remove package line for submit
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 class Solution {
 
@@ -50,11 +53,26 @@ class Solution {
                 questions[i1] = (questions[i1] < -3.0) ? -3.0 : ((questions[i1] >3 ) ? 3 : questions[i1]) ;
             }
 
+            int[] sortedQuestions = IntStream.range(0, correctQuestions.length)
+                    .boxed()
+                    .sorted(Comparator.comparingInt(d -> correctQuestions[d]))
+                    .mapToInt(ele -> ele)
+                    .toArray();
+
+
             for (int j = 0; j < 100; j++) {
-                for (int k = 0; k < 10000; k++) {
-                    double x = players[j] - questions[k];
+                for (int k = 0; k < 500; k++) {
+                    int q = sortedQuestions[k];
+                    double x = players[j] - questions[q];
                     double tp = f(x);
-                    double realp = scores.get(j).charAt(k) == '1' ? 1.0 : 0.0;
+                    double realp = scores.get(j).charAt(q) == '1' ? 1.0 : 0.0;
+                    diffs[j] += realp - tp;
+                }
+                for (int k = 0; k < 500; k++) {
+                    int q = sortedQuestions[questions.length - 1 - k];
+                    double x = players[j] - questions[q];
+                    double tp = f(x);
+                    double realp = scores.get(j).charAt(q) == '1' ? 1.0 : 0.0;
                     diffs[j] += Math.abs(tp - realp);
                 }
             }
@@ -68,7 +86,7 @@ class Solution {
                     maxIndex = k;
                 }
             }
-            System.out.println("Case #" + (i+1) + ": " + maxIndex);
+            System.out.println("Case #" + (i+1) + ": " + (1+maxIndex));
         }
     }
 
