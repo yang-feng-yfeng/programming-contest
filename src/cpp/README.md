@@ -7,4 +7,4 @@ debug:
 use vsCode native approch
 
 execute:
-./Solution.ex 
+./Solution.exe 
