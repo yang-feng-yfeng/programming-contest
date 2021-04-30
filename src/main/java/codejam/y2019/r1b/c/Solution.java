@@ -3,8 +3,6 @@ package codejam.y2019.r1b.c;
 
 import java.util.*;
 
-
-
 class Solution {
 
     static final class Pair<U, V>
@@ -88,40 +86,39 @@ class Solution {
         in.close();
     }
 
-    private static int[] countPair(List<Integer> gList, List<Integer> dList, int k, int from, int to) {
-        if (to - from == 1 ) {
-//            List<Pair<Integer, Integer>> l = new ArrayList<>();
-            if (Math.abs(gList.get(from) - dList.get(from)) <= k) {
-                return new int[] {from, 1, from, 1}; // from, from count, to, to count
-            }
-//            return l;
+    public static int calculate(List<Integer> fl, List<Integer> sl, int start, int end, int k) {
+        if (end == start) {
+            return fl.get(end) - sl.get(end) <= k ? 1 : 0;
         }
 
-        int mid = (gList.size() + dList.size()) / 2;
-//        List<Pair<Integer, Integer>> firstPairs = countPair(gList, dList, k, 0, mid+1);
-//        List<Pair<Integer, Integer>> secondPairs = countPair(gList, dList, k, mid + 1, gList.size());
+        int fmIdx = 0;
+        int flmax = -1;
 
-        // merge
-//        firstPairs.sort((a,b) -> -a.second + b.second);
-//        secondPairs.sort((a, b) -> a.second - b.second);
-//
-//        if (firstPairs.get(0).second + 1 == secondPairs.get(0).first) {
-//
-//        }
-        return null;
-    }
-
-    private static int[] countContinuesPair(List<Integer> gList, List<Integer> dList, int k, int from, int to) {
-        if (to - from == 1 ) {
-            if (Math.abs(gList.get(from) - dList.get(from)) <= k) {
-                return new int[] {1, 0};
+        int smIdx = 0;
+        int slmax = -1;
+        for (int i = start; i < end; i++) {
+            if (flmax < fl.get(i)) {
+                fmIdx = i;
+                flmax = fl.get(i);
             }
-            return new int[]{0, 0};
+            if (slmax < sl.get(i)) {
+                smIdx = i;
+                slmax = sl.get(i);
+            }
         }
-        return null;
+        int result = 0;
+        if (Math.abs(flmax - slmax) > k ) {
+            // reomve big
+            if (flmax > slmax) {
+                result += calculate(fl, sl, start, fmIdx, k) ;
+                result += calculate(fl, sl, fmIdx + 1, end, k);
+            } else {
+
+            }
+        }
+
+        return result;
     }
-
-
 
 
 }

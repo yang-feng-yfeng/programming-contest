@@ -1,7 +1,7 @@
 package codejam.y2019.r1b.a;
 // Remove package line for submit
 
-import java.util.Scanner;
+import java.util.*;
 
 class Solution {
 
@@ -10,70 +10,65 @@ class Solution {
         Scanner in = new Scanner(System.in);
 
         int T = in.nextInt();
+        Map<String, Integer> direcMap = new HashMap<>();
+        direcMap.put("N", 1);
+        direcMap.put("S", 2);
+        direcMap.put("W", 3);
+        direcMap.put("E", 4);
 
         for (int t = 0; t < T; t++) {
             int P = in.nextInt();
             int Q = in.nextInt();
-            int[][] matrix = new int[Q+1][Q+1];
+            List<int[]> xlist = new ArrayList<>();
+            List<int[]> ylist = new ArrayList<>();
 
             for (int i = 0; i < P; i++) {
                 int x = in.nextInt();
                 int y = in.nextInt();
-                String direc = in.next();
-                update(x, y, direc, matrix, Q);
+                String dir = in.next();
+                if ("N".equals(dir)) {
+                    ylist.add(new int[]{y+1, 1});
+                } else if ("S".equals(dir)) {
+                    ylist.add(new int[]{0, 1});
+                    ylist.add(new int[]{y, -1});
+                } else if ("W".equals(dir)) {
+                    xlist.add(new int[] {0, 1});
+                    xlist.add(new int[] {x, -1});
+                } else if ("E".equals(dir)) {
+                    xlist.add(new int[] {x+1, 1});
+                }
             }
+            xlist.sort((a,b) -> (a[0] - b[0] == 0 ? a[1] - b[1] : a[0] - b[0]));
+            ylist.sort((a,b) -> (a[0] - b[0] == 0 ? a[1] - b[1] : a[0] - b[0]));
 
-            int[] cord = new int[2];
-            int max = -1;
-            for (int i = 0; i < matrix.length; i++) {
-                for (int j = 0; j < matrix[i].length; j++) {
-                    if (max < matrix[i][j]) {
-                        cord[0] = i;
-                        cord[1] = j;
-                        max = matrix[i][j];
-                    }
+            int maxX = -1;
+            int idxX = 0;
+            int maxY = -1;
+            int idxY = 0;
+
+            int currentX = 0;
+            int currentY = 0;
+            for (int[] e : xlist) {
+                int x = e[0];
+                int add = e[1];
+                currentX += add;
+                if (currentX > maxX) {
+                    maxX = currentX;
+                    idxX = x;
                 }
             }
 
-
-            System.out.println("Case #" + (t+1) + ": " + cord[0] + " " + cord[1]);
+            for (int[] e : ylist) {
+                int y = e[0];
+                int add = e[1];
+                currentY += add;
+                if (currentY > maxY) {
+                    maxY = currentY;
+                    idxY = y;
+                }
+            }
+            System.out.println("Case #" + (t+1) + ": " + idxX + " " + idxY);
         }
         in.close();
-    }
-
-    private static void update(int x, int y, String direc, int[][] matrix, int Q) {
-
-        if ("N".equals(direc)) {
-            for (int i = 0; i < x; i++) {
-                for (int j = y + 1; j <= Q && j <= (x + y - i); j++) {
-                    matrix[i][j]++;
-                }
-            }
-            for (int i = y + 1; i <= Q; i++) {
-                matrix[x][i]++;
-            }
-        } else if ("S".equals(direc)) {
-            for( int i = 0; i < x; i++) {
-                for (int j = 0; j < y && j >= (i + y - x); j++){
-                    matrix[i][j]++;
-                }
-            }
-            for( int i = 0; i < y; i++) {
-                matrix[x][i]++;
-            }
-        } else if ("W".equals(direc)) {
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; (j <= Q && j <= (x + y - i))|| (j < y && j >= (i + y - x)); j++) {
-                    matrix[i][j]++;
-                }
-            }
-            for( int i = 0; i < x; i++) {
-                matrix[i][y]++;
-            }
-        } else if ("E".equals(direc)) {
-//            for (int i = x + 1; i <= Q /2; i++) {
-//                for (int j = 0; j )
-//            }
-        }
     }
 }

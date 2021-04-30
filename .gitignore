@@ -60,3 +60,9 @@ target/
 *.exe
 *.out
 *.app
+
+#cpp specific
+*.ex
+*.ex*
+*.input
+*.output
