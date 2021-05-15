@@ -26,18 +26,19 @@
 using namespace std;
 using ll = long long;
 
-string solve() {
-
+int solve(int n, int a, int b) {
+	return n - max(a, n - 1 - b);
 }
 
 /********** Main()  function *******/
 int main()
 {
-	int T, N;
-	cin >> T;
-	for (int t = 1; t<=T; ++t ) {
-		string res = solve();
-		cout << "Case #" << t <<": " << res << endl;
-	}
+	int n, a, b;
+	// cin >> T;
+	// for (int t = 1; t<=T; ++t ) {
+	cin >> n >> a >> b;
+	int res = solve(n, a, b);
+	cout << res << endl;
+	// }
 }
 /********  Main() Ends Here *************/

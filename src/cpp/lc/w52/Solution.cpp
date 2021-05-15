@@ -21,14 +21,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <unordered_map>
 
 using namespace std;
-using ll = long long;
 
-string solve() {
-
-}
 
 /********** Main()  function *******/
 int main()
@@ -36,7 +31,7 @@ int main()
 	int T, N;
 	cin >> T;
 	for (int t = 1; t<=T; ++t ) {
-		string res = solve();
+		string res = "test";
 		cout << "Case #" << t <<": " << res << endl;
 	}
 }

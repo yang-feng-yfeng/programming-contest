@@ -24,20 +24,38 @@
 #include <unordered_map>
 
 using namespace std;
-using ll = long long;
 
-string solve() {
 
+int solve(string a, string b) {
+	int n = a.size();
+	int m = b.size();
+	int maxL = -1;
+	for (int i = 0; i <= m; i++) {
+		for (int j = 0; j <= m - i; j++) {
+			string rest = b.substr(i, m - j - i);
+			//cout << "rest1: " << rest << endl;
+			if (a.find(rest) != string::npos) {
+				if ((int)rest.size() > maxL) {
+					//cout << "rest: " << rest << endl;
+					maxL = rest.size();
+				}
+				// maxL = max(maxL, (int)rest.size()); 
+			}
+		}
+	}
+	return (n - maxL) + m - maxL;
 }
 
 /********** Main()  function *******/
 int main()
 {
-	int T, N;
+	int T;
 	cin >> T;
 	for (int t = 1; t<=T; ++t ) {
-		string res = solve();
-		cout << "Case #" << t <<": " << res << endl;
+		string a,b ;
+		cin >> a >> b;
+		int res = solve(a, b);
+		cout << res << endl;
 	}
 }
 /********  Main() Ends Here *************/

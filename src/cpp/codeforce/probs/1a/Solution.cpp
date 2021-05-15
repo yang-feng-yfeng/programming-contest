@@ -26,18 +26,21 @@
 using namespace std;
 using ll = long long;
 
-string solve() {
 
+ll solve(ll n, ll m, ll a) {
+	return (ll)(ceil((long double)n / a)) * ((ll) ceil((long double)m * 1.0 / a));
 }
 
 /********** Main()  function *******/
 int main()
 {
-	int T, N;
-	cin >> T;
-	for (int t = 1; t<=T; ++t ) {
-		string res = solve();
-		cout << "Case #" << t <<": " << res << endl;
-	}
+	int T;
+	// cin >> T;
+	// for (int t = 1; t<=T; ++t ) {
+		ll n, m, a;
+		cin >> n >> m >> a;
+		ll res = solve(n, m, a);
+		cout << res << endl;
+	// }
 }
 /********  Main() Ends Here *************/

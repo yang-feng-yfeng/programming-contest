@@ -26,18 +26,25 @@
 using namespace std;
 using ll = long long;
 
-string solve() {
-
+ll solve(int N) {
+	ll count = 0; 
+	for (int i = 0; i < N; i++) {
+		int wrong = N - 1 - i;
+		count += wrong * (i + 1);
+	}
+	count += N;
+	return count;
 }
 
 /********** Main()  function *******/
 int main()
 {
-	int T, N;
-	cin >> T;
-	for (int t = 1; t<=T; ++t ) {
-		string res = solve();
-		cout << "Case #" << t <<": " << res << endl;
-	}
+	int N;
+	// cin >> T;
+	// for (int t = 1; t<=T; ++t ) {
+	cin >> N;
+	ll res = solve(N);
+	cout << res << endl;
+	// }
 }
 /********  Main() Ends Here *************/

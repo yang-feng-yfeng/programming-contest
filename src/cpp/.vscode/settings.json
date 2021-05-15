@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "__hash_table": "cpp",
+        "unordered_map": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "vector": "cpp",
+        "__tree": "cpp",
+        "map": "cpp",
+        "string": "cpp",
+        "limits": "cpp",
+        "climits": "cpp",
+        "complex": "cpp",
+        "algorithm": "cpp",
+        "string_view": "cpp"
+    }
+}
