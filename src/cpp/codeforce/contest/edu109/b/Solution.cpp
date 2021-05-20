@@ -25,32 +25,36 @@
 
 using namespace std;
 using ll = long long;
-typedef numeric_limits<double> dbl;
 
-double solve(int n, int l, vector<int>& a) {
-	double d = -1;
-	sort(a.begin(), a.end());
-	d = max(d, (double)a[0]);
-	for (int i = 1; i < n; i++) {
-		d = max(1.0 * (a[i] - a[i-1])/2, d);
+int solve(int n, vector<int> & a) {
+	if (a[0] == n && a[n-1] == 1) {
+		return 3;
 	}
-	d = max(d, (double)(l - a[n-1]));
-	return d;
+	if (a[0] == 1 || n == a[n-1]) {
+		for (int i = 0; i < n; i++) {
+			if (i+1 != a[i]) {
+				return 1;
+			}
+		}
+		return 0;
+	}
+	return 2;
 }
 
 /********** Main()  function *******/
 int main()
 {
-	int n, l;
-	cin >> n >> l;
-	// for (int t = 1; t<=T; ++t ) {
-	vector<int> a(n);
-	for (int i = 0; i < n; i++) {
-		cin >> a[i];
+	int T;
+	cin >> T;
+	for (int t = 1; t<=T; ++t ) {
+		int N;
+		cin >> N;
+		vector<int> a(N);
+		for (int i = 0; i < N ; i++) {
+			cin >> a[i];
+		}
+		int res = solve(N, a);
+		cout << res << endl;
 	}
-	double res = solve(n, l, a);
-	cout.precision(dbl::max_digits10);
-	cout << res << endl;
-	// }
 }
 /********  Main() Ends Here *************/

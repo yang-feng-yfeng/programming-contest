@@ -25,32 +25,42 @@
 
 using namespace std;
 using ll = long long;
-typedef numeric_limits<double> dbl;
 
-double solve(int n, int l, vector<int>& a) {
-	double d = -1;
+int solve(int n, int m, vector<int>& a, vector<int>& b) {
+	int f = 0;
+	int s = 0;
 	sort(a.begin(), a.end());
-	d = max(d, (double)a[0]);
-	for (int i = 1; i < n; i++) {
-		d = max(1.0 * (a[i] - a[i-1])/2, d);
+	sort(b.begin(), b.end());
+	int cnt = 0;
+	while (f < n && s < m) {
+		if (abs((ll) a[f] - b[s]) <= 1) {
+			f++;
+			s++;
+			cnt++;
+		} else if (a[f] < b[s]) {
+			f++;
+		} else {
+			s++;
+		}
 	}
-	d = max(d, (double)(l - a[n-1]));
-	return d;
+	return cnt;
 }
 
 /********** Main()  function *******/
 int main()
 {
-	int n, l;
-	cin >> n >> l;
-	// for (int t = 1; t<=T; ++t ) {
+	int n, m;
+	cin >> n;
 	vector<int> a(n);
-	for (int i = 0; i < n; i++) {
+	for (int i =0; i < n; i++) {
 		cin >> a[i];
 	}
-	double res = solve(n, l, a);
-	cout.precision(dbl::max_digits10);
+	cin >> m;
+	vector<int> b(m);
+	for (int i = 0; i < m; i++) {
+		cin >> b[i];
+	}
+	int res = solve(n, m, a, b);
 	cout << res << endl;
-	// }
 }
 /********  Main() Ends Here *************/

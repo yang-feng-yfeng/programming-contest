@@ -25,32 +25,28 @@
 
 using namespace std;
 using ll = long long;
-typedef numeric_limits<double> dbl;
-
-double solve(int n, int l, vector<int>& a) {
-	double d = -1;
-	sort(a.begin(), a.end());
-	d = max(d, (double)a[0]);
-	for (int i = 1; i < n; i++) {
-		d = max(1.0 * (a[i] - a[i-1])/2, d);
-	}
-	d = max(d, (double)(l - a[n-1]));
-	return d;
-}
 
 /********** Main()  function *******/
 int main()
 {
-	int n, l;
-	cin >> n >> l;
-	// for (int t = 1; t<=T; ++t ) {
-	vector<int> a(n);
-	for (int i = 0; i < n; i++) {
-		cin >> a[i];
+	int n, a, b, c;
+	cin >> n >> a >> b >> c;
+	// vector<int> l{a, b, c};
+	// sort(l.begin(), l.end());
+	vector<int> dp(n+1, -1);
+	dp[n] = 0;
+	for (int i = n; i >= 0; i--) {
+		if (dp[i] == -1) {
+			continue;
+		}
+		if (i - a >= 0)
+			dp[i-a] = max (dp[i-a], dp[i] + 1);
+		if (i - b >= 0) 
+			dp[i-b] = max(dp[i-b], dp[i] + 1);
+		if (i - c >= 0) 
+			dp[i-c] = max (dp[i-c], dp[i] + 1);
+		// cout << "dp[i] : " << i << " : " << dp[i] << endl;
 	}
-	double res = solve(n, l, a);
-	cout.precision(dbl::max_digits10);
-	cout << res << endl;
-	// }
+	cout << dp[0] << endl;
 }
 /********  Main() Ends Here *************/
