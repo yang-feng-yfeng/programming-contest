@@ -206,7 +206,6 @@ int solve(string a, string b) {
         bcount[b[i] - 'a']++;
     }
     int n = a.size();
-    int maxSize = -1;
 
     vector<int> dp(n , -1);
     vector<int> acount(26);
@@ -218,11 +217,13 @@ int solve(string a, string b) {
     }
     if (dp[0] == -1) 
         return -1;
+    int maxSize = dp[0];
     for (int i = 1; i < n; i++) {
         int rem = i-1;
         acount[a[rem] - 'a']--;
         if (isCovering(acount, bcount)) {
             dp[i] = dp[i-1] - 1;
+            maxSize = min(maxSize, dp[i]);
         } else {
             // find next a[rem] - 'a'
             int jstart = dp[i-1] + i;
@@ -230,10 +231,16 @@ int solve(string a, string b) {
                 acount[a[j + jstart]- 'a']++;
                 if (a[j + jstart] == a[rem]) {
                     dp[i] = dp[i-1] + j;
+                    maxSize = min(maxSize, dp[i]);
+                    break;
                 }
             }
         }
+        if (dp[i] == -1) {
+            break;
+        }
     }
+    return maxSize;
 }
 
 int main()

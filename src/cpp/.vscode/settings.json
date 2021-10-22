@@ -19,6 +19,14 @@
         "utility": "cpp",
         "__split_buffer": "cpp",
         "deque": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "iosfwd": "cpp",
+        "unordered_set": "cpp",
+        "chrono": "cpp",
+        "iterator": "cpp",
+        "set": "cpp",
+        "__locale": "cpp",
+        "__functional_03": "cpp",
+        "functional": "cpp"
     }
 }
