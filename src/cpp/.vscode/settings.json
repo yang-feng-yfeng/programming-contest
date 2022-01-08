@@ -27,6 +27,7 @@
         "set": "cpp",
         "__locale": "cpp",
         "__functional_03": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "type_traits": "cpp"
     }
 }
