@@ -69,3 +69,4 @@ target/
 *.ex*
 *.input
 *.output
+.vscode/*
