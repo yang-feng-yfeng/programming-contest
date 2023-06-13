@@ -1,5 +1,14 @@
 ### Programming contest
-- leetcode
-- codejam
-- kickstart
-- binarysearch
+- AtCoder
+    - New coder friendly website, and a lot of interesting problems. Mainly working on resolving B, C, D of the ABC contests right now.
+- CodeForces
+    - Good website, it might be confusing for new coders. It has a massive problemset to track your process. I'm only participating to Div2-4 contests. 
+- Here are the list of websites I stopped to use
+    - Leetcode
+        - Good to practice before real interviews. But stopped to work on that.
+    - Google Codejam
+        - I personally recommend this website, but some questions are very tricky.
+    - Google Kickstart
+        - Good resources. But Google stopped to support this. 
+    - Binarysearch
+        - I think this website just stopped at some point of time. And it's similar to Leetcode, good website to practice before interviews.
