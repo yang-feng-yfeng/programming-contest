@@ -28,7 +28,29 @@ using ll = long long;
 #define rep(i, l, r) for (ll i = l; i <= r; i++)
 
 ll solve() {
-	return 0;
+	ll n, m;
+	cin >> n >> m;
+	vector<ll> a(m);
+	rep(i, 0, m-1) {
+		cin >> a[i];
+	}
+	if (m == 1) {
+		return n - a[0] + 1;
+	} else {
+		bool alwaysBigger = true;
+		rep(i, 0, m-2) {
+			if (a[i] >= a[i+1]) {
+				alwaysBigger = false;
+				break;
+			}
+		}
+		if (alwaysBigger) {
+			return n - a[m-1] + 1;
+		} else {
+			return 1;
+		}
+	}
+
 }
 
 /********** Main()  function *******/

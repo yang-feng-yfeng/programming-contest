@@ -28,7 +28,33 @@ using ll = long long;
 #define rep(i, l, r) for (ll i = l; i <= r; i++)
 
 ll solve() {
-	return 0;
+	int n, k;
+	cin >> n >> k;
+	vector<int> a(n), targ(n+1, 0);
+	rep(i, 0, n-1) {
+		cin >> a[i];
+		targ[a[i]]++;
+	}
+
+	rep(i, 1, n) {
+		if (targ[i] % k != 0) {
+			return 0;
+		} else {
+			targ[i] = targ[i] / k;
+		}
+	}
+
+	ll res = 0;
+	vector<int> tmp(n+1, 0);
+	for (int l = 0, r = 0; r >= l and r < n; r++) {
+		tmp[a[r]]++;
+		while (tmp[a[r]] > targ[a[r]]) {
+			tmp[a[l]]--;
+			l++;
+		}
+		res += (r - l + 1);
+	}
+	return res;
 }
 
 /********** Main()  function *******/

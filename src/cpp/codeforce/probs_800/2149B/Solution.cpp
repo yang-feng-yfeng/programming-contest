@@ -28,7 +28,19 @@ using ll = long long;
 #define rep(i, l, r) for (ll i = l; i <= r; i++)
 
 ll solve() {
-	return 0;
+	int n;
+	cin >> n;
+	vector<ll> a(n);
+	rep(i, 0, n-1) {
+		cin >> a[i];
+	}
+	sort(a.begin(), a.end());
+	ll res = 0;
+	rep(i, 0, n-1) {
+		res = max(res, abs(a[i] - a[i+1]));
+		i++;
+	}
+	return res;
 }
 
 /********** Main()  function *******/

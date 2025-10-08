@@ -28,7 +28,25 @@ using ll = long long;
 #define rep(i, l, r) for (ll i = l; i <= r; i++)
 
 ll solve() {
-	return 0;
+	int n, k;
+	cin >> n >> k;
+	vector<int> a(n), cnt(k, 0);
+	int toremove = 0, tofill = 0;
+	rep(i, 0, n-1) {
+		cin >> a[i];
+		if (a[i] == k) {
+			toremove ++;
+		} else if (a[i] < k) {
+			cnt[a[i]]++;
+		}
+	}
+	rep(i, 0, k-1) {
+		if (!cnt[i]) {
+			tofill++;
+		}
+	}
+	
+	return max(tofill, toremove);
 }
 
 /********** Main()  function *******/

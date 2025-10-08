@@ -28,7 +28,20 @@ using ll = long long;
 #define rep(i, l, r) for (ll i = l; i <= r; i++)
 
 ll solve() {
-	return 0;
+	int n;
+	cin >> n;
+	int res = 0;
+	int tmp;
+	int cntNeg = 0;
+	rep(i, 0, n-1) {
+		cin >> tmp;
+		if (tmp == -1) cntNeg++;
+		if (tmp == 0) res++;
+	}
+	if (cntNeg % 2 == 1) {
+		res += 2;
+	}
+	return res;
 }
 
 /********** Main()  function *******/
